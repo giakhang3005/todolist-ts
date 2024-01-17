@@ -1,0 +1,376 @@
+@use "../../App.scss";
+
+//Mobile as default
+.Tasks {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.Tasks_Board {
+  min-width: 170px;
+  margin: 0 15px 0 0;
+  display: block;
+  width: clamp(170px, 40vw, 310px);
+
+  .board {
+    height: auto;
+    background-color: App.$container-color;
+    overflow-y: scroll;
+    padding: 0 9px 12px 9px;
+    border-radius: 5px;
+
+    .Board_Drag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      height: 20px;
+      width: 100%;
+      cursor: grab;
+
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px 0 12px 0;
+        margin: 0;
+
+        li {
+          height: 2.5px;
+          width: 2.5px;
+          border-radius: 50%;
+          background-color: App.$background-color;
+          margin: 0 1px 0 1px;
+        }
+      }
+    }
+    .Board_Drag:active {
+      cursor: grabbing;
+    }
+
+    .Board_Head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      height: 20px;
+      margin: 0 0 12px 0;
+
+      .Board_Title {
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        min-width: 80px;
+
+        .editedTitle {
+          font-size: 10px;
+        }
+
+        .Board_Title_Name {
+          font-size: 10px;
+          font-weight: 600;
+        }
+
+        .Board_Title_Count {
+          text-align: center;
+          font-size: 8px;
+          background-color: App.$background-color;
+          width: 12px;
+          border-radius: 40%;
+          padding: 0.5px;
+          margin: 0 0 0 5px;
+        }
+      }
+
+      .Board_Options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: 2.7px;
+        border-radius: 1px;
+        cursor: pointer;
+
+        .Board_Options_Dot {
+          height: 3px;
+          width: 3px;
+          background-color: App.$text-color;
+          border-radius: 50%;
+          margin: 0 0 0 1px;
+          transition: all 0.12s linear;
+        }
+      }
+
+      .Board_Options:hover > .Board_Options_Dot {
+        background-color: rgba(255, 255, 255, 0.346);
+      }
+    }
+  }
+
+  .Board_CardsContainer {
+    max-height: 80vh;
+    overflow: scroll;
+    .Board_Card:hover {
+      background-color: App.$container-hover;
+    }
+  }
+
+  .Board_Footer {
+    .Board_Footer_Add {
+      font-size: 10px;
+      width: 60px;
+      margin: 10px 0 0 0;
+      padding: 5px;
+      border-radius: 4px;
+      transition: all 0.12s linear;
+      cursor: pointer;
+
+      .Add_Icon {
+        margin-right: 3px;
+      }
+    }
+
+    .Board_Footer_Add:hover {
+      background-color: rgba(255, 255, 255, 0.367);
+    }
+  }
+}
+.Board_Card {
+  background-color: App.$card-color;
+  margin: 0 0 7px 0;
+  padding: 7px 5px 7px 5px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.12s linear;
+
+  .Card_Drag {
+    display: flex;
+    flex-direction: column;
+    width: 5px;
+    list-style: none;
+    margin: 0 7px 0 0;
+    padding: 0;
+    cursor: grab;
+
+    li {
+      margin: 0.7px 0 0.7px 0;
+      padding: 0;
+
+      height: 1.5px;
+      width: 1.5px;
+      background-color: App.$container-color;
+      border-radius: 50%;
+    }
+  }
+
+  .Card_Data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .Card_Info {
+      .Card_Name {
+        font-size: 11px;
+      }
+
+      .CardTagsContainer {
+        margin: 5px 0 0 0;
+      }
+    }
+    .Card_Btns {
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.12s linear;
+    }
+
+    .Card_Btns:hover {
+      color: red;
+    }
+  }
+}
+
+.modalAddBtn {
+  background-color: App.$container-color;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 8px 15px 8px 15px;
+  cursor: pointer;
+  transition: all 0.12s linear;
+}
+.modalAddBtn:hover {
+  background-color: App.$container-hover;
+}
+
+.AddBoardBtns {
+  padding: 10px;
+  font-size: 12px;
+  min-width: 170px;
+  width: clamp(170px, 40vw, 330px);
+  height: 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.12s linear;
+  cursor: pointer;
+
+  .Add_Icon {
+    margin: 0 5px 0 0;
+  }
+}
+
+.AddBoardBtns:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.deleteBoardBtn {
+  outline: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 550;
+  padding: 6px;
+  border-radius: 5px;
+  background-color: App.$background-color;
+  transition: all 0.12s linear;
+  cursor: pointer;
+}
+
+.deleteBoardBtn:hover {
+  color: white;
+  background-color: red;
+}
+
+//Desktop
+@media screen and (min-width: 576px) {
+  .Tasks {
+    padding: 22px;
+  }
+  .Tasks_Board {
+    min-width: 300px;
+    padding: 18px 12px 18px 12px;
+    margin: 0 0px 0 0;
+
+    .board {
+      .Board_Drag {
+        ul {
+          padding: 15px 0 15px 0;
+          li {
+            height: 4px;
+            width: 4px;
+            // margin: 0 2.5px 0 2.5px;
+          }
+        }
+      }
+      .Board_Head {
+        font-size: 20px;
+        margin: 0 0 18px 0;
+
+        .Board_Title {
+          min-width: 120px;
+
+          .editedTitle {
+            font-size: 15px;
+          }
+
+          .Board_Title_Name {
+            font-size: 18px;
+          }
+
+          .Board_Title_Count {
+            font-size: 14px;
+            width: 25px;
+            padding: 1.5px;
+            margin: 0 0 0 10px;
+          }
+        }
+
+        .Board_Options {
+          .Board_Options_Dot {
+            height: 4.5px;
+            width: 4.5px;
+            margin: 0 0 0 2.5px;
+          }
+        }
+      }
+
+      .Board_Footer {
+        .Board_Footer_Add {
+          font-size: 16px;
+          width: 100px;
+          padding: 8px;
+          border-radius: 7px;
+
+          .Add_Icon {
+            margin-right: 8px;
+          }
+        }
+      }
+
+      .Board_CardsContainer {
+        .Card_Drag {
+          width: 5px;
+          margin: 0 10px 0 0;
+
+          li {
+            margin: 1px 0 1px 0;
+            padding: 0;
+
+            height: 3px;
+            width: 3px;
+          }
+        }
+
+        .Board_Card {
+          padding: 12px 8px 12px 8px;
+          margin: 0 0 12px 0;
+
+          .Card_Info {
+            .Card_Name {
+              font-size: 17px;
+            }
+            .CardTagsContainer {
+              margin: 12px 0 0 0;
+            }
+          }
+
+          .Card_Btns {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+
+  .AddBoardBtns {
+    margin: 18px 0 0 0;
+    padding: 10px;
+    font-size: 18px;
+    height: 27px;
+    border-radius: 9px;
+    transition: all 0.12s linear;
+
+    .Add_Icon {
+      margin: 0 10px 0 0;
+    }
+  }
+
+  .deleteBoardBtn {
+    font-size: 15px;
+    padding: 8px;
+    border-radius: 5px;
+  }
+}

@@ -1,0 +1,193 @@
+@use "../../../App.scss";
+
+.addCard {
+  .addCard_row {
+    display: flex;
+    // align-items: center;
+    margin: 20px 0 15px 0;
+
+    .addCard_title {
+      font-size: 16px;
+      font-weight: 550;
+    }
+
+    .addCard_content {
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+}
+
+.addCard_btn {
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-weight: 550;
+  padding: 10px 17px 10px 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.addCard_btn:hover {
+  background-color: App.$container-hover;
+}
+
+.viewCard_boardNameTitle,
+.viewCard_descriptTitle {
+  font-size: 18px;
+  font-weight: 550;
+  margin: 25px 0 0 0;
+}
+.viewCard_EditInput {
+  width: 93%;
+}
+.viewCard_boardNameContent,
+.viewCard_descriptContent {
+  font-size: 14px;
+  margin: 2px 0 20px 32px;
+}
+
+.viewCard_EditInputDetail {
+  margin: 0 0 10px 32px;
+  width: 88%;
+}
+
+.viewCard_Icon {
+  margin: 0 8px 0 0;
+}
+
+.viewCard_tags {
+  margin: 12px 0 0 0;
+}
+
+.viewCard_TagsEdit {
+  margin: 15px 0 15px 32px;
+  width: 68%;
+}
+
+.addTag {
+  font-size: 16px;
+  margin: 0 0 0 2%;
+  width: 8%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+  background-color: rgba(230, 230, 230, 0.335);
+  cursor: pointer;
+  transition: all 0.12s linear;
+}
+.addTag:hover {
+  background-color: rgba(230, 230, 230, 0.556);
+}
+
+.backBtn {
+  background: rgba(230, 230, 230, 0.3);
+  transition: all 0.12s linear;
+  margin: 0 5px 0 0;
+}
+
+.addNewTag {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .addNewTag_tagInput {
+    margin: 0;
+    width: 75%;
+  }
+
+  .addNewTag_colorPicker {
+    margin: 0 0 0 3%;
+    padding: 0;
+  }
+}
+
+.addingTagContainer {
+  width: 90%;
+  margin: 10px 0 0 7%;
+}
+
+.updateTagContainer {
+  // margin: 0 0 0 32px;
+
+  .updateTagContainer_list {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 0;
+      display: flex;
+
+      .list_name {
+        margin: 0 2% 7px 0;
+        width: 77%;
+      }
+
+      .list_color {
+      }
+
+      .list_delete {
+        font-size: 17px;
+        transition: all 0.12s linear;
+        cursor: pointer;
+        margin: 0 0 0 2%;
+      }
+
+      .list_delete:hover {
+        color: red;
+      }
+    }
+  }
+
+  .updateTagSave {
+    width: 95%;
+    text-align: center;
+    background-color: #dfdede4b;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 5px 0 5px 0;
+    margin: 0 0 10px 0;
+    cursor: pointer;
+    transition: all 0.12s linear;
+  }
+
+  .updateTagSave:hover {
+    background-color: #cbcacadd;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .addCard_btn {
+    font-size: 15px;
+  }
+
+  .viewCard_task {
+    font-size: 17px;
+  }
+
+  .viewCard_title {
+    font-size: 27px;
+  }
+
+  .viewCard_boardNameTitle,
+  .viewCard_descriptTitle {
+    font-size: 20px;
+    font-weight: 550;
+  }
+
+  .viewCard_EditInput {
+    font-size: 20px;
+  }
+  .viewCard_boardNameContent,
+  .viewCard_descriptContent {
+    font-size: 16px;
+    margin: 2px 0 25px 35px;
+  }
+
+  .addTag {
+    padding: 3.5px;
+    font-size: 17px;
+  }
+}

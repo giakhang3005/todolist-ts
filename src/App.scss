@@ -1,0 +1,16 @@
+$background-color: #e6e6e6;
+$container-color: #cdcdce;
+$container-hover: #e3e2e2;
+$text-color: #09090b;
+$card-color: #e9e8e8;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  height: 100vh;
+  min-width: 100vw;
+  background-color: $background-color;
+}

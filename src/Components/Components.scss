@@ -1,0 +1,22 @@
+
+.tag {
+    display: inline-block;
+    font-size: 8px;
+    width: auto;
+    padding: 2px 7px 2px 7px;
+    margin: 0 3px 3px 0;
+    font-weight: 550;
+    border-radius: 3px;
+}
+
+@media screen and (min-width: 576px) {
+    .tag {
+        font-size: 13px;
+        width: auto;
+        border-radius: 9px;
+        padding: 3px 10px 3px 10px;
+        color: white;
+        font-weight: 550;
+        border-radius: 3px;
+    }
+}
